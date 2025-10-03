@@ -1,8 +1,52 @@
-import React from 'react'
+"use client";
+import React, { useState } from "react";
+import axios from "axios";
+import { Toaster, toast } from "sonner";
 
-type Props = {}
+type Props = {};
 
-const ContactFirstSection = (props: Props) => {
+const RefactoredContactForm = (props: Props) => {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      // API endpoint from the original ContactUsForm
+      const res = await axios.post("/api/send-email", {
+        name: form.name,
+        email: form.email,
+        message: `${form.message}\n\nPhone: ${form.phone}`,
+      });
+
+      if (res.status === 200) {
+        toast.success("Email sent successfully 😊");
+        setForm({ name: "", email: "", phone: "", message: "" });
+      } else {
+        toast.error("Something went wrong, please try again 😔");
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error("Something went wrong, please try again 😔");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div>
       <div className="tp-contact-area pre-header tp-contact-spacing pb-140">
@@ -10,6 +54,7 @@ const ContactFirstSection = (props: Props) => {
           <div className="row justify-content-center">
             <div className="col-lg-8">
               <div className="tp-contact-wrap">
+                {/* Header Content */}
                 <div className="text-center mb-60">
                   <h2 className="tp-section-title fs-70 fs-xl-60 fs-lg-50 fs-xs-40 mb-10">
                     Get in Touch
@@ -21,6 +66,7 @@ const ContactFirstSection = (props: Props) => {
                     to life
                   </p>
                 </div>
+                {/* Contact Info (Kept static) */}
                 <div className="tp-contact-number mb-70">
                   <div className="d-flex align-items-center mb-15 mr-20">
                     <span className="tp-contact-icon mr-15">
@@ -46,9 +92,9 @@ const ContactFirstSection = (props: Props) => {
                     </span>
                     <a
                       className="tp-contact-email"
-                      href="mailto:info@habeshatechnologies.com"
+                      href="mailto:contact@habeshatechnologies.com"
                     >
-                      info@habeshatechnologies.com
+                      contact@habeshatechnologies.com
                     </a>
                   </div>
                   <div className="d-flex align-items-center mb-15">
@@ -71,18 +117,21 @@ const ContactFirstSection = (props: Props) => {
                     </a>
                   </div>
                 </div>
+                {/* Contact Form Area */}
                 <div className="tp-postbox-details-form-wrapper tp-contact-form tp-bg-common-white-2 p-relative z-index-1">
                   <img
                     className="tp-contact-shape"
                     src="assets/img/contact/shape.png"
                     alt=""
                   />
+                  {/* Form with integrated logic */}
                   <form
+                    onSubmit={handleSubmit}
                     id="contact-form"
-                    action="https://html.aqlova.com/aleric-demo/aleric/assets/mail.php"
-                    method="POST"
+                    // The action and method attributes are now handled by the onSubmit handler
                   >
                     <div className="row">
+                      {/* Name Field */}
                       <div className="col-xl-6">
                         <div className="tp-postbox-details-input mb-25">
                           <label
@@ -96,10 +145,14 @@ const ContactFirstSection = (props: Props) => {
                             className="tp-input"
                             type="text"
                             id="name"
-                            placeholder="Md Harun"
+                            placeholder="Name"
+                            value={form.name}
+                            onChange={handleChange}
+                            required
                           />
                         </div>
                       </div>
+                      {/* Email Field */}
                       <div className="col-xl-6">
                         <div className="tp-postbox-details-input mb-25">
                           <label
@@ -113,123 +166,63 @@ const ContactFirstSection = (props: Props) => {
                             className="tp-input"
                             type="email"
                             id="email"
-                            placeholder="aleric@mail.com"
+                            placeholder="example@mail.com"
+                            value={form.email}
+                            onChange={handleChange}
+                            required
                           />
                         </div>
                       </div>
-                      <div className="col-xl-6">
-                        <div className="tp-postbox-details-input mb-25">
-                          <label
-                            className="fs-18 tp-ff-p tp-text-common-black mb-10"
-                            htmlFor="company"
-                          >
-                            Company
-                          </label>
-                          <input
-                            name="company"
-                            className="tp-input"
-                            type="text"
-                            id="company"
-                            placeholder="Ex. Microsoft "
-                          />
-                        </div>
-                      </div>
-                      <div className="col-xl-6">
+                      {/* Phone Field */}
+                      <div className="col-xl-12">
                         <div className="tp-postbox-details-input mb-25">
                           <label
                             className="fs-18 tp-ff-p tp-text-common-black mb-10"
                             htmlFor="phone"
                           >
-                            Phone{" "}
-                            <span className="tp-text-grey-2">( Optional)</span>
+                            Phone
                           </label>
                           <input
                             name="phone"
                             className="tp-input"
                             type="text"
                             id="phone"
-                            placeholder="+92 854 453 ***"
+                            placeholder="+2519********"
+                            value={form.phone}
+                            onChange={handleChange}
                           />
                         </div>
                       </div>
-                      <div className="col-xl-12">
-                        <div className="tp-postbox-details-input mb-25">
-                          <label
-                            className="fs-18 tp-ff-p tp-text-common-black mb-10"
-                            htmlFor="service"
-                          >
-                            Choose Needed Service
-                          </label>
-                          <select
-                            id="service"
-                            className="tp-select tp-input mb-20"
-                            name="service"
-                          >
-                            <option value="1">Branding Design</option>
-                            <option value="2">Digital Agency</option>
-                            <option value="3">Personal Portfolio</option>
-                            <option value="4">Creative Agency</option>
-                          </select>
-                        </div>
-                      </div>
+                      {/* Message/Description Field */}
                       <div className="col-xl-12">
                         <div className="tp-postbox-details-input mb-10">
                           <label
                             className="fs-18 tp-ff-p tp-text-common-black mb-10"
                             htmlFor="msg"
                           >
-                            Project Details
+                            Description
                           </label>
                           <textarea
                             name="message"
                             className="tp-input tp-textarea"
                             id="msg"
-                            placeholder="Write to brief about project"
+                            placeholder="Write your message here"
+                            value={form.message}
+                            onChange={handleChange}
+                            required
                           ></textarea>
                         </div>
                       </div>
                     </div>
-                    <div className="tp-postbox-details-remember mb-30">
-                      <input
-                        name="checkbox"
-                        className="tp-checkbox"
-                        id="remeber"
-                        type="checkbox"
-                      />
-                      <label htmlFor="remeber">
-                        I agree to receive follow-up emails about my request and
-                        related services.
-                      </label>
-                    </div>
+                    {/* Submit Button */}
                     <div className="tp-postbox-details-input-box">
                       <button
                         type="submit"
+                        disabled={loading}
                         className="tp-btn-sm tp-left-right fw-500 tp-ff-heading fs-15 text-uppercase tp-text-common-black tp-bg-theme-primary tp-round-36"
                       >
                         <span className="mr10 td-text d-inline-block mr-5">
-                          Submit Inquiry
-                        </span>
-                        <span className="tp-arrow-angle">
-                          <svg
-                            width="14"
-                            height="14"
-                            viewBox="0 0 14 14"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              clipRule="evenodd"
-                              d="M2.41379 3.30208C5.97452 3.05821 10.6092 1.55558 14 0C12.4438 3.39014 10.9406 8.02425 10.6973 11.585L8.35765 6.59331L1.14783 13.8037C1.02165 13.9295 0.850656 14.0001 0.672431 14C0.539461 14 0.409486 13.9605 0.298934 13.8866C0.188382 13.8128 0.102217 13.7077 0.0513353 13.5849C0.000453949 13.462 -0.0128613 13.3269 0.013072 13.1965C0.0390053 13.066 0.103024 12.9462 0.197034 12.8522L7.40683 5.64241L2.41379 3.30208Z"
-                              fill="currentColor"
-                            />
-                            <path
-                              fillRule="evenodd"
-                              clipRule="evenodd"
-                              d="M2.41379 3.30208C5.97452 3.05821 10.6092 1.55558 14 0C12.4438 3.39014 10.9406 8.02425 10.6973 11.585L8.35765 6.59331L1.14783 13.8037C1.02165 13.9295 0.850656 14.0001 0.672431 14C0.539461 14 0.409486 13.9605 0.298934 13.8866C0.188382 13.8128 0.102217 13.7077 0.0513353 13.5849C0.000453949 13.462 -0.0128613 13.3269 0.013072 13.1965C0.0390053 13.066 0.103024 12.9462 0.197034 12.8522L7.40683 5.64241L2.41379 3.30208Z"
-                              fill="currentColor"
-                            />
-                          </svg>
+                          {loading ? "Sending..." : "Submit"}
                         </span>
                       </button>
                       <p className="ajax-response mt-20"></p>
@@ -238,11 +231,14 @@ const ContactFirstSection = (props: Props) => {
                 </div>
               </div>
             </div>
+            {/* The second section (map area) from the original ContactUsForm is not present 
+            in ContactFirstSection's structure, so it's omitted here to maintain the requested layout. */}
           </div>
         </div>
       </div>
+      <Toaster position="bottom-right" richColors />
     </div>
   );
-}
+};
 
-export default ContactFirstSection
+export default RefactoredContactForm;

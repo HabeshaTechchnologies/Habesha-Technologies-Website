@@ -1,13 +1,50 @@
-import React from 'react'
+// components/BlogGridDynamic.tsx
+export const dynamic = "force-dynamic";
 
-type Props = {}
+import React from "react";
+import { getBlogPosts } from "@/lib/sanity/fetchQueries";
+import { urlForImage } from "@/lib/sanity/image";
 
-const BlogGrid = (props: Props) => {
+// Define an interface for the blog post structure for better type safety (assuming 'any' from original is a placeholder)
+interface BlogPost {
+  slug: {
+    current: string;
+  };
+  mainImage: any; // Type depends on Sanity image structure
+  title: string;
+  publishedAt: string;
+  categories: { title: string }[];
+}
+
+/**
+ * A dynamic component that fetches blog posts and displays them in a grid layout.
+ * It combines the data fetching of BlogList with the styling structure of BlogGrid.
+ */
+async function BlogGridDynamic() {
+  const blogPosts: BlogPost[] = await getBlogPosts();
+  // We'll limit to 6 posts to fit the original BlogGrid's structure/example, but all fetched posts are in 'blogPosts'.
+  const displayPosts = blogPosts.slice(0, 6);
+
+  // Helper to safely format the post title
+  const formatTitle = (title: string | undefined): string => {
+    if (!title) return "Untitled Post";
+    return title.length > 60 ? title.slice(0, 60) + "..." : title;
+  };
+
+  // Helper to get the image URL from Sanity
+  const getImageUrl = (image: any, width: number, height: number): string => {
+    return (
+      urlForImage(image)?.width(width).height(height).url() ||
+      "assets/images/blog/default.jpg"
+    );
+  };
+
   return (
     <div>
       <div className="tp-blog-area pt-140 pb-140">
         <div className="container">
           <div className="row">
+            {/* Introductory Content (Retained from original BlogGrid) */}
             <div className="col-lg-4">
               <div
                 className="tp-blog-subtitle mb-30 tp_fade_anim"
@@ -31,6 +68,7 @@ const BlogGrid = (props: Props) => {
                   data-delay=".7"
                 >
                   <span className="mr-40 tp-service-shape d-inline-block">
+                    {/* SVG content for shape */}
                     <svg
                       width="45"
                       height="45"
@@ -69,262 +107,78 @@ const BlogGrid = (props: Props) => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6">
-              <div
-                className="tp-blog-item tp--hover-item mb-60 tp_fade_anim"
-                data-delay=".4"
-                data-fade-from="left"
-                data-ease="bounce"
-              >
-                <a
-                  href="blog-details-light.html"
-                  className="tp-blog-thumb d-block mb-30 p-relative fix d-inline-block"
+
+            {/* Dynamic Blog Post Grid */}
+            {displayPosts.map((post, index) => (
+              // The grid column structure is taken from BlogGrid
+              <div key={post.slug.current} className="col-lg-4 col-md-6">
+                {/* The card styling is taken from BlogGrid */}
+                <div
+                  className="tp-blog-item tp--hover-item mb-60 tp_fade_anim"
+                  data-delay=".4"
+                  // Dynamic fade-from based on index to mimic original staggered effect
+                  data-fade-from={
+                    index % 3 === 0
+                      ? "left"
+                      : index % 3 === 1
+                        ? "bottom"
+                        : "right"
+                  }
+                  data-ease="bounce"
                 >
-                  <div
-                    className="tp--hover-img"
-                    data-displacement="assets/img/imghover/strip.png"
-                    data-intensity="0.2"
-                    data-speedin="1"
-                    data-speedout="1"
+                  <a
+                    href={`/blog/${post.slug.current}`}
+                    className="tp-blog-thumb d-block mb-30 p-relative fix d-inline-block"
                   >
-                    <img
-                      className="w-100"
-                      src="assets/img/blog/thumb.jpg"
-                      alt=""
-                    />
-                  </div>
-                </a>
-                <div className="tp-blog-content text-center">
-                  <div className="tp-blog-meta mb-15">
-                    <span>Web Design</span>
-                    <span className="borders"></span>
-                    <span>02 Feb, 2025</span>
-                  </div>
-                  <h3 className="fs-25">
-                    <a
-                      className="underline-black"
-                      href="blog-details-light.html"
+                    {/* The hover effect wrapper */}
+                    <div
+                      className="tp--hover-img"
+                      data-displacement="assets/img/imghover/strip.png"
+                      data-intensity="0.2"
+                      data-speedin="1"
+                      data-speedout="1"
                     >
-                      Mastering customer journeys with marketing funnel
-                      analytics.
-                    </a>
-                  </h3>
+                      <img
+                        className="w-100"
+                        src={getImageUrl(post.mainImage, 400, 300)} // Using a custom width/height for this grid
+                        alt={post.title || "Blog"}
+                        // Add some inline style for better consistency, though CSS classes may handle this
+                        style={{ height: "300px", objectFit: "cover" }}
+                      />
+                    </div>
+                  </a>
+                  <div className="tp-blog-content text-center">
+                    <div className="tp-blog-meta mb-15">
+                      {/* Category */}
+                      <span>{post.categories?.[0]?.title || "General"}</span>
+                      <span className="borders"></span>
+                      {/* Date */}
+                      <span>
+                        {new Date(post.publishedAt).toLocaleDateString(
+                          "en-US",
+                          {
+                            year: "numeric",
+                            month: "short",
+                            day: "2-digit",
+                          }
+                        ) || "N/A"}
+                      </span>
+                    </div>
+                    {/* Title */}
+                    <h3 className="fs-25 lh-120-per">
+                      <a
+                        className="underline-black"
+                        href={`/blog/${post.slug.current}`}
+                      >
+                        {formatTitle(post.title)}
+                      </a>
+                    </h3>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="col-lg-4 col-md-6">
-              <div
-                className="tp-blog-item tp--hover-item mb-60 tp_fade_anim"
-                data-delay=".4"
-                data-fade-from="bottom"
-                data-ease="bounce"
-              >
-                <a
-                  href="blog-details-light.html"
-                  className="tp-blog-thumb d-block mb-30 p-relative fix d-inline-block"
-                >
-                  <div
-                    className="tp--hover-img"
-                    data-displacement="assets/img/imghover/strip.png"
-                    data-intensity="0.2"
-                    data-speedin="1"
-                    data-speedout="1"
-                  >
-                    <img
-                      className="w-100"
-                      src="assets/img/blog/thumb-2.jpg"
-                      alt=""
-                    />
-                  </div>
-                </a>
-                <div className="tp-blog-content text-center">
-                  <div className="tp-blog-meta mb-15">
-                    <span>AI Trends</span>
-                    <span className="borders"></span>
-                    <span>02 Feb, 2025</span>
-                  </div>
-                  <h3 className="fs-25 lh-120-per">
-                    <a
-                      className="underline-black"
-                      href="blog-details-light.html"
-                    >
-                      Our Creative Process for High-Impact Branding.
-                    </a>
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6">
-              <div
-                className="tp-blog-item tp--hover-item mb-60 tp_fade_anim"
-                data-delay=".4"
-                data-fade-from="right"
-                data-ease="bounce"
-              >
-                <a
-                  href="blog-details-light.html"
-                  className="tp-blog-thumb d-block mb-30 p-relative fix d-inline-block"
-                >
-                  <div
-                    className="tp--hover-img"
-                    data-displacement="assets/img/imghover/strip.png"
-                    data-intensity="0.2"
-                    data-speedin="1"
-                    data-speedout="1"
-                  >
-                    <img
-                      className="w-100"
-                      src="assets/img/blog/thumb-3.jpg"
-                      alt=""
-                    />
-                  </div>
-                </a>
-                <div className="tp-blog-content text-center">
-                  <div className="tp-blog-meta mb-15">
-                    <span>Web Design</span>
-                    <span className="borders"></span>
-                    <span>02 Feb, 2025</span>
-                  </div>
-                  <h3 className="fs-25 lh-120-per">
-                    <a
-                      className="underline-black"
-                      href="blog-details-light.html"
-                    >
-                      {" "}
-                      Our Creative Process for High-Impact Branding.
-                    </a>
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6">
-              <div
-                className="tp-blog-item tp--hover-item mb-60 tp_fade_anim"
-                data-delay=".4"
-                data-fade-from="left"
-                data-ease="bounce"
-              >
-                <a
-                  href="blog-details-light.html"
-                  className="tp-blog-thumb d-block mb-30 p-relative fix d-inline-block"
-                >
-                  <div
-                    className="tp--hover-img"
-                    data-displacement="assets/img/imghover/strip.png"
-                    data-intensity="0.2"
-                    data-speedin="1"
-                    data-speedout="1"
-                  >
-                    <img
-                      className="w-100"
-                      src="assets/img/blog/thumb-4.jpg"
-                      alt=""
-                    />
-                  </div>
-                </a>
-                <div className="tp-blog-content text-center">
-                  <div className="tp-blog-meta mb-15">
-                    <span>Web Design</span>
-                    <span className="borders"></span>
-                    <span>02 Feb, 2025</span>
-                  </div>
-                  <h3 className="fs-25 lh-120-per">
-                    <a
-                      className="underline-black"
-                      href="blog-details-light.html"
-                    >
-                      Our Creative Process for High-Impact Branding.
-                    </a>
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6">
-              <div
-                className="tp-blog-item tp--hover-item mb-60 tp_fade_anim"
-                data-delay=".4"
-                data-fade-from="bottom"
-                data-ease="bounce"
-              >
-                <a
-                  href="blog-details-light.html"
-                  className="tp-blog-thumb d-block mb-30 p-relative fix d-inline-block"
-                >
-                  <div
-                    className="tp--hover-img"
-                    data-displacement="assets/img/imghover/strip.png"
-                    data-intensity="0.2"
-                    data-speedin="1"
-                    data-speedout="1"
-                  >
-                    <img
-                      className="w-100"
-                      src="assets/img/blog/thumb-5.jpg"
-                      alt=""
-                    />
-                  </div>
-                </a>
-                <div className="tp-blog-content text-center">
-                  <div className="tp-blog-meta mb-15">
-                    <span>AI Trends</span>
-                    <span className="borders"></span>
-                    <span>02 Feb, 2025</span>
-                  </div>
-                  <h3 className="fs-25 lh-120-per">
-                    <a
-                      className="underline-black"
-                      href="blog-details-light.html"
-                    >
-                      Top 5 Web Design Mistakes That Hurt Conversions.
-                    </a>
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6">
-              <div
-                className="tp-blog-item tp--hover-item mb-60 tp_fade_anim"
-                data-delay=".4"
-                data-fade-from="right"
-                data-ease="bounce"
-              >
-                <a
-                  href="blog-details-light.html"
-                  className="tp-blog-thumb d-block mb-30 p-relative fix d-inline-block"
-                >
-                  <div
-                    className="tp--hover-img"
-                    data-displacement="assets/img/imghover/strip.png"
-                    data-intensity="0.2"
-                    data-speedin="1"
-                    data-speedout="1"
-                  >
-                    <img
-                      className="w-100"
-                      src="assets/img/blog/thumb-6.jpg"
-                      alt=""
-                    />
-                  </div>
-                </a>
-                <div className="tp-blog-content text-center">
-                  <div className="tp-blog-meta mb-15">
-                    <span>Web Design</span>
-                    <span className="borders"></span>
-                    <span>02 Feb, 2025</span>
-                  </div>
-                  <h3 className="fs-25 lh-120-per">
-                    <a
-                      className="underline-black"
-                      href="blog-details-light.html"
-                    >
-                      {" "}
-                      Why User-Centered Design is the Key to Digital Success.
-                    </a>
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div className="col-12">
+            ))}
+            {/* Static Pagination (Retained from original BlogGrid) */}
+            {/* <div className="col-12">
               <div className="tp-blog-pagenation-wrap pt-20">
                 <a
                   href="blog-grid-light.html#"
@@ -383,7 +237,7 @@ const BlogGrid = (props: Props) => {
                   </svg>
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -391,4 +245,4 @@ const BlogGrid = (props: Props) => {
   );
 }
 
-export default BlogGrid
+export default BlogGridDynamic;

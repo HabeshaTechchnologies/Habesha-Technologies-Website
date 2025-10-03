@@ -38,7 +38,7 @@ const ServiceFirstSection = (props: Props) => {
                               <ul>
                                  <li><a href="/">Home</a></li>
                                  <li><span></span></li>
-                                 <li>Service 02</li>
+                                 <li>Service</li>
                               </ul>
                            </div>
                         </div>

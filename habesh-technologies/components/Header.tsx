@@ -17,7 +17,7 @@ const MobileMenu = () => (
     <div style={{ padding: "1rem 1.5rem" }}>
       <a href="/">
         <img
-          src="assets/img/habesha/habesha-logo-removebg.png"
+          src="/assets/img/habesha/habesha-logo-removebg.png"
           alt="Logo"
           style={{ height: "40px", objectFit: "contain" }}
         />
@@ -82,16 +82,6 @@ const MobileMenu = () => (
       >
         <a href="/blog" style={{ textDecoration: "none", color: "#111" }}>
           Blog
-        </a>
-      </li>
-      <li
-        style={{
-          fontSize: "1.1rem",
-          fontWeight: 500,
-        }}
-      >
-        <a href="/contact" style={{ textDecoration: "none", color: "#111" }}>
-          Contact
         </a>
       </li>
     </ul>
@@ -202,7 +192,7 @@ const Header = (props: Props) => {
                   <a href="index.html">
                     <img
                       data-width="150"
-                      src="assets/img/habesha/habesha-logo-removebg.png"
+                      src="/assets/img/habesha/habesha-logo-removebg.png"
                       alt="logo"
                     />
                   </a>
@@ -225,9 +215,6 @@ const Header = (props: Props) => {
                       </li>
                       <li className="has-dropdown">
                         <a href="/blog">Blog</a>
-                      </li>
-                      <li className="has-dropdown">
-                        <a href="/contact">Contact</a>
                       </li>
                     </ul>
                   </nav>

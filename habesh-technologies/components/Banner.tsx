@@ -7,7 +7,7 @@ const Banner = (props: Props) => {
     <div>
         <div className="tp-banner-area fix scale-up-img tp-bg-common-green-3">
                <div className="box tp-banner-it-thumb">
-                  <img data-speed=".8" className="img-cover scale-up" src="assets/img/banner/it/bg.jpg" alt=""/>
+                  <img data-speed=".8" className="img-cover scale-up" src="/assets/img/habesha/habesha-banner-7.jpg" alt=""/>
                </div>
             </div>
     </div>

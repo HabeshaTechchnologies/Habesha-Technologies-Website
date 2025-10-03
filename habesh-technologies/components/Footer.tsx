@@ -111,10 +111,10 @@ const Footer = (props: Props) => {
                   data-delay=".3"
                 >
                   <div className="tp-footer-logo mb-35">
-                    <a href="index.html">
+                    <a href="/">
                       <img
                         data-width="150"
-                        src="assets/img/habesha/habesha-logo-white-text.png"
+                        src="/assets/img/habesha/habesha-logo-white-text.png"
                         alt=""
                       />
                     </a>
@@ -135,6 +135,9 @@ const Footer = (props: Props) => {
                     Company
                   </h3>
                   <ul>
+                    <li>
+                      <a href="/home">Home</a>
+                    </li>
                     <li>
                       <a href="/about">About Us</a>
                     </li>

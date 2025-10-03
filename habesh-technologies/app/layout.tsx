@@ -79,6 +79,8 @@ export default function RootLayout({
         <Script src="/assets/js/ajax-form.js" strategy="afterInteractive" />
         <Script src="/assets/js/slider-init.js" strategy="afterInteractive" />
         <Script src="/assets/js/tp-cursor.js" strategy="afterInteractive" />
+        <Script src="/assets/js/throwable.js" strategy="afterInteractive" />
+        <Script src="/assets/js/matter.js" strategy="afterInteractive" />
         {/* Load main.js last, as it may depend on all the plugins above */}
         <Script src="/assets/js/main.js" strategy="lazyOnload" />
       </body>

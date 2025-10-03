@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 const About = (props: Props) => {
   return (
@@ -61,19 +61,17 @@ const About = (props: Props) => {
                   </div>
                 </div>
                 <p className="tp-text-common-black-4 fs-18 tp-ff-inter lh-150-per mb-50">
-                  “Habesha Technologies has been a game-changer for our
-                  business. Their team delivered exactly what we
-                  needed—efficient, reliable, and results-driven digital
-                  solutions. We’ve seen measurable improvements since partnering
-                  with them; they truly bring ideas to life with creativity,
-                  precision, and impact.”
+                  Habesha Technologies delivers future-ready IT solutions
+                  tailored to modern business needs. We specialize in innovative
+                  digital systems that drive growth and efficiency. Empowering
+                  organizations with technology designed for tomorrow, today.
                 </p>
                 <div className="tp-about-it-author">
                   <h6 className="fw-600 fs-25 tp-text-common-black-1 tp-ff-inter mb-5">
-                    John Doe
+                    Yunus Kidem Tesfaye
                   </h6>
                   <span className="tp-text-common-black-4 tp-ff-inter fs-18">
-                    CEO, InnovateTech
+                    CEO, Habesha Technologies
                   </span>
                 </div>
               </div>
@@ -83,6 +81,6 @@ const About = (props: Props) => {
       </div>
     </div>
   );
-}
+};
 
-export default About
+export default About;

@@ -25,7 +25,7 @@ const page = (props: Props) => {
           <Counter/>
           <Service/>
           <Process/>
-          <Portfolio/>
+          {/* <Portfolio/> */}
           {/* <Team/> */}
           <Testimonial/>
           {/* <Gallery/> */}

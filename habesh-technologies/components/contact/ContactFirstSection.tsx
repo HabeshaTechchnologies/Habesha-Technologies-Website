@@ -190,6 +190,7 @@ const RefactoredContactForm = (props: Props) => {
                             placeholder="+2519********"
                             value={form.phone}
                             onChange={handleChange}
+                            required
                           />
                         </div>
                       </div>
@@ -236,7 +237,6 @@ const RefactoredContactForm = (props: Props) => {
           </div>
         </div>
       </div>
-      <Toaster position="bottom-right" richColors />
     </div>
   );
 };

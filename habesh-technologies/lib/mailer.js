@@ -5,7 +5,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export const mailer = async ({ name, email, phone, message, subject }) => {
   try {
     const { data, error } = await resend.emails.send({
-      from: "Green Power Systems <contact@habeshatechnologies.com>", // must be verified in Resend
+      from: "Habesha Technologies <contact@habeshatechnologies.com>", // must be verified in Resend
       to: "contact@habeshatechnologies.com",
       reply_to: email, // replies go back to the sender
       subject: subject || `New message from ${name}`,

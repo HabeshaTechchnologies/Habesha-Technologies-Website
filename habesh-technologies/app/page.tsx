@@ -11,6 +11,7 @@ import Service from '@/components/Service';
 import Team from '@/components/Team';
 import Testimonial from '@/components/Testimonial';
 import React from 'react'
+import { Toaster } from 'sonner';
 
 type Props = {}
 
@@ -20,17 +21,17 @@ const page = (props: Props) => {
       <div id="smooth-content">
         <main>
           <Hero />
-          <Banner/>
-          <About/>
-          <Counter/>
-          <Service/>
-          <Process/>
+          <Banner />
+          <About />
+          <Counter />
+          <Service />
+          <Process />
           {/* <Portfolio/> */}
           {/* <Team/> */}
-          <Testimonial/>
+          <Testimonial />
           {/* <Gallery/> */}
-          <Blog/>
-          <CTA/>
+          <Blog />
+          <CTA />
         </main>
       </div>
     </div>

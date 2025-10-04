@@ -68,8 +68,8 @@ const RefactoredContactForm = (props: Props) => {
                 </div>
                 {/* Contact Info (Kept static) */}
                 <div className="tp-contact-number mb-70">
-                  <div className="d-flex align-items-center mb-15 mr-20">
-                    <span className="tp-contact-icon mr-15">
+                  <div className="flex items-center mb-3 mr-5">
+                    <span className="tp-contact-icon mr-3">
                       <svg
                         width="16"
                         height="16"
@@ -91,14 +91,15 @@ const RefactoredContactForm = (props: Props) => {
                       </svg>
                     </span>
                     <a
-                      className="tp-contact-email"
                       href="mailto:contact@habeshatechnologies.com"
+                      className="text-[18px] font-normal text-gray-700"
                     >
                       contact@habeshatechnologies.com
                     </a>
                   </div>
-                  <div className="d-flex align-items-center mb-15">
-                    <span className="tp-contact-icon mr-15">
+
+                  <div className="flex items-center mb-3">
+                    <span className="tp-contact-icon mr-3">
                       <svg
                         width="16"
                         height="16"
@@ -112,11 +113,15 @@ const RefactoredContactForm = (props: Props) => {
                         />
                       </svg>
                     </span>
-                    <a className="tp-contact-email" href="mailto:+251935012620">
-                      +251 935 012 620
+                    <a
+                      href="tel:+251935012620"
+                      className="text-[18px] font-normal text-gray-700"
+                    >
+                      {" "}+251 935 012 620
                     </a>
                   </div>
                 </div>
+
                 {/* Contact Form Area */}
                 <div className="tp-postbox-details-form-wrapper tp-contact-form tp-bg-common-white-2 p-relative z-index-1">
                   <img

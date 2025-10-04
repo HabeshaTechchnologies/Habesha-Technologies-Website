@@ -33,12 +33,12 @@ const Counter = (props: Props) => {
                     <h2 className="tp-text-common-black-1 tp-ff-inter fw-600 fs-70 text-uppercase mb-0">
                       <span
                         data-purecounter-duration="1"
-                        data-purecounter-end="34"
+                        data-purecounter-end="19"
                         className="purecounter"
                       >
                         0
                       </span>
-                      K
+                      +
                     </h2>
                     <span className="fs-500 fs-18 tp-ff-inter tp-text-common-black-4">
                       Project Completed
@@ -68,15 +68,15 @@ const Counter = (props: Props) => {
                     <h2 className="tp-text-common-black-1 tp-ff-inter fw-600 fs-70 text-uppercase mb-0">
                       <span
                         data-purecounter-duration="1"
-                        data-purecounter-end="16"
+                        data-purecounter-end="13"
                         className="purecounter"
                       >
                         0
                       </span>
-                      K
+                      +
                     </h2>
                     <span className="fs-500 fs-18 tp-ff-inter tp-text-common-black-4">
-                      Country Office
+                      Staff members
                     </span>
                   </div>
                 </div>
@@ -103,7 +103,7 @@ const Counter = (props: Props) => {
                     <h2 className="tp-text-common-black-1 tp-ff-inter fw-600 fs-70 text-uppercase mb-0">
                       <span
                         data-purecounter-duration="1"
-                        data-purecounter-end="12"
+                        data-purecounter-end="3"
                         className="purecounter"
                       >
                         0

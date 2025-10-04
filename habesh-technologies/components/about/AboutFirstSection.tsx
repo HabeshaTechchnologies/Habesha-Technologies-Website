@@ -33,7 +33,7 @@ const AboutFirstSection = (props: Props) => {
                 </div>
                 <div className="tp-about-expreance d-flex align-items-end mb-30">
                   <h2 className="fw-600 fs-100 tp-ff-dm p-relative d-inline-block mb-0 lh-1">
-                    12 <span className="plus fs-25">+</span>
+                    3+ <span className="plus fs-25">+</span>
                   </h2>
                   <span className="tp-ff-dm fs-18 fw-700 tp-text-common-black mb-10 ml-15">
                     Years of <br /> Development Experience

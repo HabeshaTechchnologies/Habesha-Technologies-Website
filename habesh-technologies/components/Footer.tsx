@@ -121,7 +121,7 @@ const Footer = (props: Props) => {
                   </div>
                   <p className="tp-footer-it-dec tp-text-grey-5 fs-18 tp-ff-inter lh-150-per mb-25">
                     Habesha Technologies – Global Digital Solutions Agency Since{" "}
-                    <br /> 2018 Providing Smart Web, App, ERP & System
+                    <br /> 2022 Providing Smart Web, App, ERP & System
                     Solutions.
                   </p>
                 </div>
@@ -225,7 +225,7 @@ const Footer = (props: Props) => {
                         <path d="..." fill="#999999" />
                       </svg>
                     </span>
-                    Copyright 2025{" "}
+                    Copyright {new Date().getFullYear()} {" "}
                     <a href="/" className="underline-white">
                       Habesha Technologies
                     </a>

@@ -87,7 +87,7 @@ const Hero = (props: Props) => {
                   <h2 className="tp-ff-inter fs-72 fs-xs-55 ls-m-2 tp-text-common-black-1 mb-10">
                     <span
                       data-purecounter-duration="1"
-                      data-purecounter-end="99"
+                      data-purecounter-end="98"
                       className="purecounter"
                     >
                       0
@@ -103,7 +103,7 @@ const Hero = (props: Props) => {
                   <h2 className="tp-ff-inter fs-72 fs-xs-55 ls-m-2 tp-text-common-black-1 mb-10">
                     <span
                       data-purecounter-duration="1"
-                      data-purecounter-end="152"
+                      data-purecounter-end="19"
                       className="purecounter"
                     >
                       0
@@ -112,7 +112,7 @@ const Hero = (props: Props) => {
                   </h2>
                   <span className="tp-ff-poppins fw-500 fs-18 fs-xs-14 subtitle">
                     Project Completed In
-                    <br /> 25 Countries.
+                    <br /> 3 Countries.
                   </span>
                 </div>
               </div>

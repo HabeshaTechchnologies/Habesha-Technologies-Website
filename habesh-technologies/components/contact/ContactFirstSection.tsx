@@ -114,10 +114,10 @@ const RefactoredContactForm = (props: Props) => {
                       </svg>
                     </span>
                     <a
-                      href="tel:+251935012620"
+                      href="tel:+251985162424"
                       className="text-[18px] font-normal text-gray-700"
                     >
-                      {" "}+251 935 012 620
+                      {" "}+251 985 162 424
                     </a>
                   </div>
                 </div>

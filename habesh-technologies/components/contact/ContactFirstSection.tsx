@@ -127,7 +127,7 @@ const RefactoredContactForm = (props: Props) => {
                   {/* Form with integrated logic */}
                   <form
                     onSubmit={handleSubmit}
-                    id="contact-form"
+                    // id="contact-form"
                     // The action and method attributes are now handled by the onSubmit handler
                   >
                     <div className="row">
@@ -200,7 +200,7 @@ const RefactoredContactForm = (props: Props) => {
                             className="fs-18 tp-ff-p tp-text-common-black mb-10"
                             htmlFor="msg"
                           >
-                            Description
+                            Message
                           </label>
                           <textarea
                             name="message"

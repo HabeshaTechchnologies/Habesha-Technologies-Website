@@ -1,3 +1,4 @@
+"use server";
 import { mailer } from "@/lib/mailer";
 import { NextResponse, NextRequest } from "next/server";
 

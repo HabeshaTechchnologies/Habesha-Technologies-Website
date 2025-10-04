@@ -199,9 +199,9 @@ const Footer = (props: Props) => {
                   </a>
                   <a
                     className="tp-ff-inter fw-600 fs-18 lh-140-per ls-m-2 tp-text-grey-5 opacity-8 hover-opacity-1 hover-text-white"
-                    href="tel:+251935012620"
+                    href="tel:+251985162424"
                   >
-                    +251 935 012 620
+                    +251 985 162 424
                   </a>
                 </div>
               </div>

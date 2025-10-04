@@ -59,27 +59,6 @@ const Process = (props: Props) => {
                       src="assets/img/process/it/thumb.png"
                       alt=""
                     />
-                    <div className="tp-video-main tp-process-it-video">
-                      <a
-                        className="tp-hero-video-btn popup-video"
-                        href="https://www.youtube.com/watch?v=go7QYaQR494"
-                      >
-                        <span>
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M13.5645 10.1224C15.0631 9.1342 15.0631 6.93206 13.5645 5.94387L5.18141 0.416189C3.51284 -0.684068 1.29437 0.527069 1.31261 2.52828L1.41277 13.5176C1.43082 15.4982 3.63024 16.673 5.2816 15.5841L13.5645 10.1224Z"
-                              fill="#030303"
-                            />
-                          </svg>
-                        </span>
-                      </a>
-                    </div>
                   </div>
                 </div>
               </div>

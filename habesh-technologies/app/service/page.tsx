@@ -1,24 +1,30 @@
-import Banner from '@/components/Banner'
-import ServiceFirstSection from '@/components/service/ServiceFirstSection'
-import ServiceSecondSection from '@/components/service/ServiceSecondSection'
-import ServiceThirdSection from '@/components/service/ServiceThirdSection'
-import Testimonial from '@/components/Testimonial'
-import TextSlider from '@/components/TextSlider'
-import React from 'react'
+import AboutThirdSection from "@/components/about/AboutThirdSection";
+import Banner from "@/components/Banner";
+import BreadCrumb from "@/components/BreadCrumb";
+import Process from "@/components/Process";
+import ServiceFirstSection from "@/components/service/ServiceFirstSection";
+import ServiceSecondSection from "@/components/service/ServiceSecondSection";
+import ServiceThirdSection from "@/components/service/ServiceThirdSection";
+import Testimonial from "@/components/Testimonial";
+import TextSlider from "@/components/TextSlider";
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 const page = (props: Props) => {
   return (
     <div>
-        <ServiceFirstSection/>
-        <Banner/>
-        <ServiceSecondSection/>
-        <ServiceThirdSection/>
-        <Testimonial/>
-        <TextSlider/>
+      <BreadCrumb name="Services" />
+      <ServiceFirstSection />
+      <Banner />
+      <ServiceSecondSection />
+      {/* <ServiceThirdSection/> */}
+      <AboutThirdSection />
+      <Process/>
+      <Testimonial />
+      <TextSlider />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

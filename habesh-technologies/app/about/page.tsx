@@ -18,9 +18,9 @@ const page = (props: Props) => {
       <AboutFirstSection />
       <Banner />
       {/* <AboutTextSlider/> */}
+      <AboutThirdSection />
       <AboutSecondSection />
       <Parteners />
-      <AboutThirdSection />
       <Counter />
       <TextSlider />
     </div>

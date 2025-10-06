@@ -3,6 +3,42 @@ import React from "react";
 type Props = {};
 
 const Parteners = (props: Props) => {
+  // Partner data: image + link
+  const partners = [
+    {
+      src: "assets/img/habesha/customer-1.png",
+      link: "https://mamigaspharmaceuticals.com/",
+    },
+    {
+      src: "assets/img/habesha/customer-2.png",
+      link: "https://sharjahelevator.com/",
+    },
+    {
+      src: "assets/img/habesha/customer-3.png",
+      link: "http://greenpowersystemsplc.com/",
+    },
+    {
+      src: "assets/img/habesha/customer-4.png",
+      link: "https://www.packerrdj.com/",
+    },
+    {
+      src: "assets/img/habesha/customer-1.png",
+      link: "https://mamigaspharmaceuticals.com/",
+    },
+    {
+      src: "assets/img/habesha/customer-2.png",
+      link: "https://sharjahelevator.com/",
+    },
+    {
+      src: "assets/img/habesha/customer-3.png",
+      link: "http://greenpowersystemsplc.com/",
+    },
+    {
+      src: "assets/img/habesha/customer-4.png",
+      link: "https://www.packerrdj.com/",
+    },
+  ];
+
   return (
     <div>
       <div className="tp-brand-area tp-brand-spacing tp-bg-common-white z-index-1 p-relative">
@@ -16,24 +52,19 @@ const Parteners = (props: Props) => {
 
         <div className="tp-brand-wrap">
           <div className="swiper-container tp-brand-slide-active">
-            <div className="swiper-wrapper slide-transtion flex items-center justify-center gap-6">
-              {[
-                "assets/img/habesha/customer-1.png",
-                "assets/img/habesha/customer-2.png",
-                "assets/img/habesha/customer-3.png",
-                "assets/img/habesha/customer-4.png",
-                "assets/img/habesha/customer-1.png",
-                "assets/img/habesha/customer-2.png",
-                "assets/img/habesha/customer-3.png",
-                "assets/img/habesha/customer-4.png",
-              ].map((src, i) => (
+            <div className="swiper-wrapper slide-transtion flex items-center justify-center gap-6 flex-wrap">
+              {partners.map((partner, i) => (
                 <div key={i} className="swiper-slide">
                   <div className="tp-brand-item flex items-center justify-center">
-                    <a href="/about">
+                    <a
+                      href={partner.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <img
-                        src={src}
+                        src={partner.src}
                         alt={`Client ${i + 1}`}
-                        className="w-70 h-30 sm:w-40 md:w-44 lg:w-48 object-contain"
+                        className="w-40 sm:w-44 md:w-48 lg:w-52 object-contain transition-transform duration-300 hover:scale-105"
                       />
                     </a>
                   </div>

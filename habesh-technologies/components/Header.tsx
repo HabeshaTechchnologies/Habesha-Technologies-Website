@@ -189,7 +189,7 @@ const Header = (props: Props) => {
               {/* Logo */}
               <div className="col-xxl-3 col-xl-2 col-lg-4 col-md-4 col-sm-4 col-6">
                 <div className="tp-header-logo">
-                  <a href="index.html">
+                  <a href="/">
                     <img
                       data-width="150"
                       src="/assets/img/habesha/habesha-logo-removebg.png"

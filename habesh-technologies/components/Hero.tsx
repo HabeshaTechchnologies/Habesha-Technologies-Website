@@ -58,15 +58,15 @@ const Hero = (props: Props) => {
               />
             </svg>
           </span>
-          <a href="https://www.linkedin.com/">
-            <i className="fa-brands fa-linkedin-in"></i>
-          </a>
-          <a href="https://www.facebook.com/">
-            <i className="fa-brands fa-facebook"></i>
-          </a>
-          <a href="https://www.tiktok.com/">
-            <i className="fa-brands fa-tiktok"></i>
-          </a>
+          <a href="https://www.linkedin.com/company/Habesha-Technologies/">
+    <i className="fa-brands fa-linkedin-in"></i>
+</a>
+<a href="https://www.facebook.com/HabeshaTechnologies">
+    <i className="fa-brands fa-facebook"></i>
+</a>
+<a href="https://www.tiktok.com/@habesha_technologies">
+    <i className="fa-brands fa-tiktok"></i>
+</a>
         </div>
         <div className="container-fluid container-1524 containers">
           <div className="row align-items-end">

@@ -42,19 +42,13 @@ const Footer = (props: Props) => {
                     >
                       <ul>
                         <li>
-                          <a href="https://www.linkedin.com/company/habesha-technologies/">
+                          <a href="https://www.linkedin.com/company/Habesha-Technologies/">
                             <i className="fa-brands fa-linkedin"></i>
                             LinkedIn
                           </a>
                         </li>
                         <li>
-                          <a href="https://twitter.com/Habesha_Tech">
-                            <i className="fa-brands fa-x-twitter"></i>
-                            Twitter
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://www.facebook.com/HabeshaTechPlc">
+                          <a href="https://www.facebook.com/HabeshaTechnologies">
                             <i className="fa-brands fa-facebook-f"></i>
                             Facebook
                           </a>
@@ -63,6 +57,18 @@ const Footer = (props: Props) => {
                           <a href="https://t.me/HabeshaTechnologiesPLC">
                             <i className="fa-brands fa-telegram"></i>
                             Telegram
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://www.instagram.com/habesha_technologies">
+                            <i className="fa-brands fa-instagram"></i>
+                            Instagram
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://www.tiktok.com/@habesha_technologies">
+                            <i className="fa-brands fa-tiktok"></i>
+                            TikTok
                           </a>
                         </li>
                       </ul>
@@ -225,7 +231,7 @@ const Footer = (props: Props) => {
                         <path d="..." fill="#999999" />
                       </svg>
                     </span>
-                    Copyright {new Date().getFullYear()} {" "}
+                    Copyright {new Date().getFullYear()}{" "}
                     <a href="/" className="underline-white">
                       Habesha Technologies
                     </a>

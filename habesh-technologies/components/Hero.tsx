@@ -63,7 +63,9 @@ const Hero = (props: Props) => {
           </a>
           <a href="https://www.instagram.com/habesha_technologies">
             <i className="fa-brands fa-instagram"></i>
-            Instagram
+          </a>
+          <a href="https://t.me/HabeshaTechnologiesPLC">
+            <i className="fa-brands fa-telegram"></i>
           </a>
           <a href="https://www.facebook.com/HabeshaTechnologies">
             <i className="fa-brands fa-facebook"></i>

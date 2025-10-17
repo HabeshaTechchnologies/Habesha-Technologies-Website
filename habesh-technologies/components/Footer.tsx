@@ -42,13 +42,13 @@ const Footer = (props: Props) => {
                     >
                       <ul>
                         <li>
-                          <a href="https://www.linkedin.com/company/Habesha-Technologies/">
+                          <a href="https://www.linkedin.com/company/habeshatechnologies/">
                             <i className="fa-brands fa-linkedin"></i>
                             LinkedIn
                           </a>
                         </li>
                         <li>
-                          <a href="https://www.facebook.com/HabeshaTechnologies">
+                          <a href="https://www.facebook.com/Habesha_Technologies">
                             <i className="fa-brands fa-facebook-f"></i>
                             Facebook
                           </a>

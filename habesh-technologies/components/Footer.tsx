@@ -195,7 +195,7 @@ const Footer = (props: Props) => {
                     className="tp-text-grey-5 opacity-8 tp-ff-inter fs-18 ls-m-2 lh-140-per hover-opacity-1 hover-text-white d-block mb-45"
                     href="https://www.google.com/maps"
                   >
-                    CMC - MERI LOKE /WOSSEN ROAD , KIDUS MICHAEL BUILDING
+                    GERJI, SELAM BUILDING
                   </a>
                   <a
                     className="tp-ff-inter fs-18 lh-140-per ls-m-2 tp-text-grey-5 opacity-8 hover-opacity-1 hover-text-white d-block mb-45"
